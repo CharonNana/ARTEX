@@ -1,13 +1,14 @@
 import packageJson from "../../package.json";
 
+const appName = "CTEST";
 const currentYear = new Date().getFullYear();
 
 export const APP_CONFIG = {
-  name: "CTEST",
+  name: appName,
   version: packageJson.version,
-  copyright: `© ${currentYear}, ARTEX.`,
+  copyright: `© ${currentYear}, ${appName}.`,
   meta: {
-    title: "CTEST",
+    title: appName,
     description: "LLM 驱动的自主渗透测试系统控制台",
   },
 };

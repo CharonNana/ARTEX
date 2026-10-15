@@ -122,7 +122,7 @@ export async function http<T>(path: string, init?: RequestInit): Promise<T> {
       ...(init?.headers as Record<string, string> | undefined),
     },
   });
-  if (r.status === 401) {
+  if (r.status === 401 && path !== "/auth/login") {
     if (typeof window !== "undefined") {
       localStorage.removeItem("artex_token");
       document.cookie = "artex_token=; path=/; max-age=0";
@@ -165,7 +165,7 @@ export async function http<T>(path: string, init?: RequestInit): Promise<T> {
 // Token is appended as ?token= because SSE can't carry cookies cross-origin.
 // mockReport returns a canned Markdown report for the demo.
 function mockReport(_task?: string): string {
-  return `# ARTEX 渗透测试报告 — Acme Corp
+  return `# CTEST 渗透测试报告 — Acme Corp
 
 ## 概览
 - 范围：acme.com（含 www / admin / api / shop / vpn 子域）
