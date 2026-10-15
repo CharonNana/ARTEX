@@ -1,0 +1,7 @@
+services:
+  artex:
+    image: artex:local-arm64
+    platform: linux/arm64
+    ports: !override
+      - "127.0.0.1:8787:8787"
+      - "127.0.0.1:8788:8788"
