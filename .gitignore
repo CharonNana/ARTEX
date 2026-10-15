@@ -54,6 +54,9 @@ Thumbs.db
 # 调度器运行/模拟产生的事件日志（测试产物，不提交）
 *-events.csv
 
+# 本地运行日志
+/logs/
+
 # bench 基准测试相关（本地产物，不提交）
 /bench/
 /Dockerfile.bench
