@@ -2,6 +2,14 @@ services:
   artex:
     image: artex:local-arm64
     platform: linux/arm64
+    volumes:
+      # 密钥存放在可浏览工作区之外，重建容器后保留登录会话。
+      - type: bind
+        source: /Users/cc/.local/share/artex/jwt.key
+        target: /app/jwt.key
+        read_only: true
+        bind:
+          create_host_path: false
     ports: !override
       - "127.0.0.1:8787:8787"
       - "127.0.0.1:8788:8788"
